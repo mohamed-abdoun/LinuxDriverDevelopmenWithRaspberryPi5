@@ -35,12 +35,12 @@ MODULE_INFO(retpoline, "Y");
 
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
-	{ 0xfd69799a, "__platform_driver_register" },
+	{ 0x851a010f, "__platform_driver_register" },
 	{ 0x122c3a7e, "_printk" },
-	{ 0xd86aae26, "misc_deregister" },
-	{ 0x1a704aed, "platform_driver_unregister" },
-	{ 0x59c3686c, "misc_register" },
-	{ 0x773354b7, "module_layout" },
+	{ 0x11e6803e, "misc_deregister" },
+	{ 0x83b61d90, "platform_driver_unregister" },
+	{ 0x53c34e79, "misc_register" },
+	{ 0x6f6ab014, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
@@ -48,4 +48,4 @@ MODULE_INFO(depends, "");
 MODULE_ALIAS("of:N*T*Carrow,hellokeys");
 MODULE_ALIAS("of:N*T*Carrow,hellokeysC*");
 
-MODULE_INFO(srcversion, "AB3175A2F3C54291E9F93B0");
+MODULE_INFO(srcversion, "90FD9A472FAEFAEFD4D9C3C");
