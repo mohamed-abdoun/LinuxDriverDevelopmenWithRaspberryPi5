@@ -78,7 +78,7 @@ static struct platform_driver my_platform_driver = {
 /* Register your platform driver */
 module_platform_driver(my_platform_driver);
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Alberto Liberal <aliberal@arroweurope.com>");
+MODULE_AUTHOR("Mohamed Osman <mosman@seattleu.edu>");
 MODULE_DESCRIPTION("This is the simplest platform driver");
 
 
