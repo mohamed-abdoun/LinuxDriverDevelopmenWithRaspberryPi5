@@ -1,0 +1,1 @@
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/modules.order := {   echo /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/ledRGB_rpi5.o; :; } > /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/modules.order

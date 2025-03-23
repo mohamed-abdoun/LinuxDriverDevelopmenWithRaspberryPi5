@@ -1,0 +1,1 @@
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/with_address/ledRGB_rpi3_platform.mod := printf '%s\n'   ledRGB_rpi3_platform.o | awk '!x[$$0]++ { print("/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/with_address/"$$0) }' > /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/with_address/ledRGB_rpi3_platform.mod

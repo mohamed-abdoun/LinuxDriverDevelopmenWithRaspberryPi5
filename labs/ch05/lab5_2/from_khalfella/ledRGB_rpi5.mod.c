@@ -36,16 +36,23 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0x851a010f, "__platform_driver_register" },
-	{ 0x122c3a7e, "_printk" },
 	{ 0x11e6803e, "misc_deregister" },
-	{ 0x83b61d90, "platform_driver_unregister" },
+	{ 0x34a653d, "gpiod_set_value" },
+	{ 0xf9ca2eb4, "kstrtoint_from_user" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x50f5bd59, "devm_kmalloc" },
+	{ 0xb7c4d2ac, "devm_gpiod_get" },
+	{ 0x507c530b, "of_property_read_string" },
+	{ 0xe7ba2c88, "gpiod_direction_output" },
 	{ 0x53c34e79, "misc_register" },
+	{ 0x122c3a7e, "_printk" },
+	{ 0x83b61d90, "platform_driver_unregister" },
 	{ 0x6f6ab014, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
 
-MODULE_ALIAS("of:N*T*Carrow,hellokeys");
-MODULE_ALIAS("of:N*T*Carrow,hellokeysC*");
+MODULE_ALIAS("of:N*T*Carrow,RGBleds");
+MODULE_ALIAS("of:N*T*Carrow,RGBledsC*");
 
-MODULE_INFO(srcversion, "90FD9A472FAEFAEFD4D9C3C");
+MODULE_INFO(srcversion, "3D477D6D26A98B67A9BA7D4");
