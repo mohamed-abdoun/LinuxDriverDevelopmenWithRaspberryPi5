@@ -1,0 +1,1 @@
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/Module.symvers -T /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_2/from_khalfella/modules.order -i Module.symvers -e 
