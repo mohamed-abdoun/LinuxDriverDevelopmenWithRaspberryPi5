@@ -1,0 +1,1 @@
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/modules.order := {   echo /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o; :; } > /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/modules.order
