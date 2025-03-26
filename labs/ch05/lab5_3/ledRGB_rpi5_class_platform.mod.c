@@ -55,4 +55,4 @@ MODULE_INFO(depends, "");
 MODULE_ALIAS("of:N*T*Carrow,RGBclassleds");
 MODULE_ALIAS("of:N*T*Carrow,RGBclassledsC*");
 
-MODULE_INFO(srcversion, "FFB314588999001D8BED98D");
+MODULE_INFO(srcversion, "5653D1075FC3ED4908DD60F");

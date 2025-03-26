@@ -18,9 +18,9 @@
 #define GPIO_FUNCSEL_MASK               0b11111
 #define PAD_OUT_DIS_MASK                (1 << 7)
 
-#define GPIO_BASE_REG_ADDR              0xFE200000  // Updated for RPI5 (BCM2712)
-#define RIO_BASE_REG_ADDR               0xFE200100  // Updated for RPI5 (BCM2712)
-#define PAD_BASE_REG_ADDR               0xFE200200  // Updated for RPI5 (BCM2712)
+#define GPIO_BASE_REG_ADDR              0x1f000d0000
+#define RIO_BASE_REG_ADDR               0x1f000d0000
+#define PAD_BASE_REG_ADDR               0x1f000d0000
 #define REG_SIZE                         0x1000
 
 struct led_dev {
