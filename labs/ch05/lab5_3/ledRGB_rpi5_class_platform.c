@@ -5,6 +5,8 @@
 #include <linux/leds.h>              // misc_register()
 #include <linux/of.h>                // of_property_read_string()
 
+#include <linux/gpio/consumer.h>  // for gpiod_get(), gpiod_direction_output(), gpiod_set_value()
+
 //######### RPI5 addresses (BCM2712) ########
 #define RP1_RW_OFFSET                   0x0000
 #define RP1_XOR_OFFSET                  0x1000
@@ -21,7 +23,7 @@
 #define GPIO_BASE_REG_ADDR              0x1f000d0000
 #define RIO_BASE_REG_ADDR               0x1f000d0000
 #define PAD_BASE_REG_ADDR               0x1f000d0000
-#define REG_SIZE                         0x1000
+#define REG_SIZE                         0xc000
 
 struct led_dev {
     u32 led_mask;              // Different masks for each LED (R, G, B)
@@ -31,12 +33,25 @@ struct led_dev {
 
 static void led_control(struct led_classdev *led_cdev, enum led_brightness b)
 {
+     pr_info("LED_control received brightness = %u\n", b);
     struct led_dev *dev = container_of(led_cdev, struct led_dev, cdev);
+
     iowrite32(0, dev->base);
-    if (b != LED_OFF)   // LED ON
-        iowrite32(dev->led_mask, dev->base + RP1_SET_OFFSET);
-    else
-        iowrite32(0, dev->base + RP1_CLR_OFFSET);    // LED OFF
+    if (b != LED_OFF) {
+    // lab5.2 cause kernel panic
+        // offset = val ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
+       // pr_info("LED_control: writing brightness %u to address %px\n",
+       // b, dev->rio + offset + RP1_RIO_OUT);
+       // iowrite32(b, dev->rio + offset + RP1_RIO_OUT);
+
+        iowrite32(dev->led_mask, dev->base + RP1_SET_OFFSET);//dev->base + RP1_SET_OFFSET); // how lab5.3 write
+        pr_info("LED_control: writing brightness %u to address %px\n",
+             b,  dev->base + RP1_SET_OFFSET);
+    }  // LED ON
+    else {
+            iowrite32(0, dev->base + RP1_CLR_OFFSET);    // LED OFF
+    }
+
 }
 
 static int ledclass_probe(struct platform_device *pdev)
@@ -75,7 +90,7 @@ static int ledclass_probe(struct platform_device *pdev)
 
     // Adjust the GPIO function select register
     u32 GPFSEL_read = ioread32(g_ioremap_addr + RP1_RIO_IN + RP1_RIO_OUT);  // Read actual value (BCM2712)
-    u32 GPFSEL_write = (GPFSEL_read & ~GPIO_FUNCSEL_MASK) | (GPIO_FUNCSEL_MASK);  // Example of writing GPIO functionality (Adjust for actual)
+    u32 GPFSEL_write = (GPFSEL_read & ~GPIO_FUNCSEL_MASK) | (GPIO_FUNCSEL_MASK);
 
     // Set Direction of the GPIOs to Output
     iowrite32(GPFSEL_write, g_ioremap_addr + RP1_RIO_OE);
@@ -83,6 +98,7 @@ static int ledclass_probe(struct platform_device *pdev)
     // Switch OFF all LEDs
     iowrite32(GPIO_FUNCSEL_MASK, g_ioremap_addr + RP1_CLR_OFFSET);
 
+    pr_info("LED probe- about to enter for_each_child_of_node" );
     for_each_child_of_node( dev->of_node,child ) {
         struct led_dev *led_device;
         struct led_classdev *cdev;
@@ -95,6 +111,7 @@ static int ledclass_probe(struct platform_device *pdev)
         of_property_read_string(child, "label", &led_device->cdev.name);
 
         if (strcmp(led_device->cdev.name, "red") == 0) {
+
             led_device->led_mask = (1 << 27);  // GPIO_27 for red
         } else if (strcmp(led_device->cdev.name, "green") == 0) {
             led_device->led_mask = (1 << 22);  // GPIO_22 for green
@@ -105,9 +122,16 @@ static int ledclass_probe(struct platform_device *pdev)
             return -EINVAL;
         }
 
+
         /* Disable the timer trigger */
         led_device->cdev.brightness = LED_OFF;
         led_device->cdev.brightness_set = led_control;
+
+        // Add your debug prints here
+        pr_info("=== RGB LED Probe ===\n");
+        pr_info("  name  : %s\n", led_device->cdev.name);
+        pr_info("  brightness   : %d\n",   led_device->cdev.brightness);
+        pr_info("  brightness_set  : %px\n", led_device->cdev.brightness_set);
 
         ret = devm_led_classdev_register(dev, &led_device->cdev);
         if (ret) {
@@ -165,6 +189,8 @@ static void ledRGBclass_exit(void)
     platform_driver_unregister(&led_platform_driver);
     pr_info("LED driver exit\n");
 }
+
+
 
 module_init(ledRGBclass_init);
 module_exit(ledRGBclass_exit);

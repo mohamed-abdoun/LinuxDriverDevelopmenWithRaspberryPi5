@@ -36,17 +36,19 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0x122c3a7e, "_printk" },
-	{ 0x851a010f, "__platform_driver_register" },
-	{ 0xca38a148, "platform_get_resource" },
-	{ 0x1f89d774, "devm_ioremap" },
-	{ 0x62d71962, "of_get_next_child" },
+	{ 0xf9ca2eb4, "kstrtoint_from_user" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0xedc03953, "iounmap" },
+	{ 0x83b61d90, "platform_driver_unregister" },
 	{ 0xe2d5255a, "strcmp" },
-	{ 0xe83bf7ae, "devm_led_classdev_register_ext" },
+	{ 0x62d71962, "of_get_next_child" },
+	{ 0x11e6803e, "misc_deregister" },
 	{ 0x50f5bd59, "devm_kmalloc" },
 	{ 0x507c530b, "of_property_read_string" },
-	{ 0x13a0a82f, "_dev_err" },
-	{ 0x620d9b38, "of_node_put" },
-	{ 0x83b61d90, "platform_driver_unregister" },
+	{ 0xaf56600a, "arm64_use_ng_mappings" },
+	{ 0x40863ba1, "ioremap_prot" },
+	{ 0x851a010f, "__platform_driver_register" },
+	{ 0x53c34e79, "misc_register" },
 	{ 0x6f6ab014, "module_layout" },
 };
 
@@ -55,4 +57,4 @@ MODULE_INFO(depends, "");
 MODULE_ALIAS("of:N*T*Carrow,RGBclassleds");
 MODULE_ALIAS("of:N*T*Carrow,RGBclassledsC*");
 
-MODULE_INFO(srcversion, "6ED840F300C0A304EDD6ACD");
+MODULE_INFO(srcversion, "1E6D6FF0DF9DF4CBCA8C006");

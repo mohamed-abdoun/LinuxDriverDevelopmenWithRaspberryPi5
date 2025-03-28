@@ -1,8 +1,8 @@
-savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := aarch64-linux-gnu-gcc -Wp,-MMD,/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/.ledRGB_rpi5_class_platform.o.d -nostdinc -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PATCHABLE_FUNCTION_ENTRY -DKASAN_SHADOW_SCALE_SHIFT= -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mgeneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=1 -Wno-psabi -mabi=lp64 -fno-asynchronous-unwind-tables -fno-unwind-tables -mbranch-protection=pac-ret -Wa,-march=armv8.5-a -DARM64_ASM_ARCH='"armv8.5-a"' -DKASAN_SHADOW_SCALE_SHIFT= -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-omit-frame-pointer -fno-optimize-sibling-calls -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fpatchable-function-entry=4,2 -falign-functions=8 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-overflow -Wno-stringop-truncation -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1432  -DMODULE  -DKBUILD_BASENAME='"ledRGB_rpi5_class_platform"' -DKBUILD_MODNAME='"ledRGB_rpi5_class_platform"' -D__KBUILD_MODNAME=kmod_ledRGB_rpi5_class_platform -c -o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.c  
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o := aarch64-linux-gnu-gcc -Wp,-MMD,/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/.ledRGB_rpi5_class_platform_using_lab5_2.o.d -nostdinc -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PATCHABLE_FUNCTION_ENTRY -DKASAN_SHADOW_SCALE_SHIFT= -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mgeneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=1 -Wno-psabi -mabi=lp64 -fno-asynchronous-unwind-tables -fno-unwind-tables -mbranch-protection=pac-ret -Wa,-march=armv8.5-a -DARM64_ASM_ARCH='"armv8.5-a"' -DKASAN_SHADOW_SCALE_SHIFT= -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-omit-frame-pointer -fno-optimize-sibling-calls -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fpatchable-function-entry=4,2 -falign-functions=8 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-overflow -Wno-stringop-truncation -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1432  -DMODULE  -DKBUILD_BASENAME='"ledRGB_rpi5_class_platform_using_lab5_2"' -DKBUILD_MODNAME='"ledRGB_rpi5_class_platform_using_lab5_2"' -D__KBUILD_MODNAME=kmod_ledRGB_rpi5_class_platform_using_lab5_2 -c -o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.c  
 
-source_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.c
+source_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o := /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.c
 
-deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := \
+deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o := \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -978,6 +978,24 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
   include/linux/device/driver.h \
   arch/arm64/include/asm/device.h \
   include/linux/pm_wakeup.h \
+  include/linux/miscdevice.h \
+  include/uapi/linux/major.h \
+  include/linux/gpio.h \
+    $(wildcard include/config/GPIOLIB) \
+  include/linux/gpio/consumer.h \
+    $(wildcard include/config/GPIO_SYSFS) \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/mod_devicetable.h \
+  include/uapi/linux/mei.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/property.h \
+  include/linux/fwnode.h \
   include/linux/io.h \
     $(wildcard include/config/HAS_IOPORT_MAP) \
     $(wildcard include/config/PCI) \
@@ -1024,7 +1042,6 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
     $(wildcard include/config/GENERIC_PCI_IOMAP) \
   include/linux/logic_pio.h \
     $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
   include/linux/vmalloc.h \
     $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
   arch/arm64/include/asm/vmalloc.h \
@@ -1040,21 +1057,7 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
     $(wildcard include/config/LEDS_TRIGGER_CPU) \
     $(wildcard include/config/LEDS_TRIGGER_AUDIO) \
   include/dt-bindings/leds/common.h \
-  include/linux/of.h \
-    $(wildcard include/config/OF_DYNAMIC) \
-    $(wildcard include/config/SPARC) \
-    $(wildcard include/config/OF_PROMTREE) \
-    $(wildcard include/config/OF_KOBJ) \
-    $(wildcard include/config/OF_NUMA) \
-    $(wildcard include/config/OF_OVERLAY) \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
-  include/linux/property.h \
-  include/linux/gpio/consumer.h \
-    $(wildcard include/config/GPIOLIB) \
-    $(wildcard include/config/GPIO_SYSFS) \
 
-/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o: $(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o)
+/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o: $(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o)
 
-$(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o):
+$(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.o):

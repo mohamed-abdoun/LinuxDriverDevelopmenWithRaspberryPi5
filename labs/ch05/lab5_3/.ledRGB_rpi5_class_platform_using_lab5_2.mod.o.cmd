@@ -1,8 +1,11 @@
-savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := aarch64-linux-gnu-gcc -Wp,-MMD,/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/.ledRGB_rpi5_class_platform.o.d -nostdinc -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PATCHABLE_FUNCTION_ENTRY -DKASAN_SHADOW_SCALE_SHIFT= -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mgeneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=1 -Wno-psabi -mabi=lp64 -fno-asynchronous-unwind-tables -fno-unwind-tables -mbranch-protection=pac-ret -Wa,-march=armv8.5-a -DARM64_ASM_ARCH='"armv8.5-a"' -DKASAN_SHADOW_SCALE_SHIFT= -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-omit-frame-pointer -fno-optimize-sibling-calls -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fpatchable-function-entry=4,2 -falign-functions=8 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-overflow -Wno-stringop-truncation -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1432  -DMODULE  -DKBUILD_BASENAME='"ledRGB_rpi5_class_platform"' -DKBUILD_MODNAME='"ledRGB_rpi5_class_platform"' -D__KBUILD_MODNAME=kmod_ledRGB_rpi5_class_platform -c -o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.c  
+savedcmd_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o := aarch64-linux-gnu-gcc -Wp,-MMD,/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/.ledRGB_rpi5_class_platform_using_lab5_2.mod.o.d -nostdinc -I./arch/arm64/include -I./arch/arm64/include/generated -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PATCHABLE_FUNCTION_ENTRY -DKASAN_SHADOW_SCALE_SHIFT= -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mgeneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=1 -Wno-psabi -mabi=lp64 -fno-asynchronous-unwind-tables -fno-unwind-tables -mbranch-protection=pac-ret -Wa,-march=armv8.5-a -DARM64_ASM_ARCH='"armv8.5-a"' -DKASAN_SHADOW_SCALE_SHIFT= -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-omit-frame-pointer -fno-optimize-sibling-calls -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fpatchable-function-entry=4,2 -falign-functions=8 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-overflow -Wno-stringop-truncation -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1432 -DMODULE -DKBUILD_BASENAME='"ledRGB_rpi5_class_platform_using_lab5_2.mod"' -DKBUILD_MODNAME='"ledRGB_rpi5_class_platform_using_lab5_2"' -D__KBUILD_MODNAME=kmod_ledRGB_rpi5_class_platform_using_lab5_2 -c -o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.c
 
-source_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.c
+source_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o := /root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.c
 
-deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o := \
+deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o := \
+    $(wildcard include/config/UNWINDER_ORC) \
+    $(wildcard include/config/MODULE_UNLOAD) \
+    $(wildcard include/config/RETPOLINE) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -21,7 +24,6 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/RETPOLINE) \
     $(wildcard include/config/GCC_ASM_GOTO_OUTPUT_WORKAROUND) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
@@ -52,7 +54,6 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
     $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
     $(wildcard include/config/KUNIT) \
     $(wildcard include/config/PRINTK_INDEX) \
-    $(wildcard include/config/MODULE_UNLOAD) \
     $(wildcard include/config/CONSTRUCTORS) \
     $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
@@ -932,129 +933,17 @@ deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rp
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
     $(wildcard include/config/MODULES_USE_ELF_REL) \
     $(wildcard include/config/MODULES_USE_ELF_RELA) \
-  include/linux/platform_device.h \
-    $(wildcard include/config/HAS_IOMEM) \
-    $(wildcard include/config/SUSPEND) \
-    $(wildcard include/config/HIBERNATE_CALLBACKS) \
-    $(wildcard include/config/PM_SLEEP) \
-    $(wildcard include/config/SUPERH) \
-  include/linux/device.h \
-    $(wildcard include/config/GENERIC_MSI_IRQ) \
-    $(wildcard include/config/ENERGY_MODEL) \
-    $(wildcard include/config/PINCTRL) \
-    $(wildcard include/config/DMA_OPS) \
-    $(wildcard include/config/DMA_DECLARE_COHERENT) \
-    $(wildcard include/config/DMA_CMA) \
-    $(wildcard include/config/SWIOTLB) \
-    $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/OF) \
-    $(wildcard include/config/DEVTMPFS) \
-  include/linux/dev_printk.h \
-  include/linux/energy_model.h \
-  include/linux/sched/cpufreq.h \
-    $(wildcard include/config/CPU_FREQ) \
-  include/linux/sched/topology.h \
-    $(wildcard include/config/SCHED_DEBUG) \
-    $(wildcard include/config/SCHED_CLUSTER) \
-    $(wildcard include/config/SCHED_MC) \
-    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
-  include/linux/sched/idle.h \
-  include/linux/sched/sd_flags.h \
-  include/linux/ioport.h \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
-  include/linux/device/bus.h \
-    $(wildcard include/config/ACPI) \
-  include/linux/device/class.h \
-  include/linux/device/driver.h \
-  arch/arm64/include/asm/device.h \
-  include/linux/pm_wakeup.h \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/PCI) \
-  arch/arm64/include/asm/io.h \
-  include/linux/pgtable.h \
-    $(wildcard include/config/HIGHPTE) \
-    $(wildcard include/config/ARCH_HAS_NONLEAF_PMD_YOUNG) \
-    $(wildcard include/config/GUP_GET_PXX_LOW_HIGH) \
-    $(wildcard include/config/ARCH_WANT_PMD_MKWRITE) \
-    $(wildcard include/config/HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) \
-    $(wildcard include/config/HAVE_ARCH_SOFT_DIRTY) \
-    $(wildcard include/config/ARCH_ENABLE_THP_MIGRATION) \
-    $(wildcard include/config/ARCH_HAS_PTE_DEVMAP) \
-    $(wildcard include/config/HAVE_ARCH_HUGE_VMAP) \
-    $(wildcard include/config/X86_ESPFIX64) \
-  arch/arm64/include/asm/pgtable.h \
-    $(wildcard include/config/PAGE_TABLE_CHECK) \
-  arch/arm64/include/asm/proc-fns.h \
-  arch/arm64/include/asm/pgtable-prot.h \
-    $(wildcard include/config/ARM64_BTI_KERNEL) \
-  arch/arm64/include/asm/tlbflush.h \
-    $(wildcard include/config/ARM64_WORKAROUND_REPEAT_TLBI) \
-  include/linux/mmu_notifier.h \
-  include/linux/mmap_lock.h \
-  include/linux/interval_tree.h \
-  arch/arm64/include/asm/fixmap.h \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/ARM_SDE_INTERFACE) \
-    $(wildcard include/config/UNMAP_KERNEL_AT_EL0) \
-    $(wildcard include/config/RELOCATABLE) \
-  include/asm-generic/fixmap.h \
-  include/linux/page_table_check.h \
-  include/asm-generic/pgtable_uffd.h \
-    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_WP) \
-  arch/arm64/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
-  include/linux/vmalloc.h \
-    $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
-  arch/arm64/include/asm/vmalloc.h \
-    $(wildcard include/config/PTDUMP_DEBUGFS) \
-  include/linux/leds.h \
-    $(wildcard include/config/NEW_LEDS) \
-    $(wildcard include/config/LEDS_TRIGGERS) \
-    $(wildcard include/config/LEDS_BRIGHTNESS_HW_CHANGED) \
-    $(wildcard include/config/LEDS_CLASS) \
-    $(wildcard include/config/LEDS_TRIGGER_DISK) \
-    $(wildcard include/config/LEDS_TRIGGER_MTD) \
-    $(wildcard include/config/LEDS_TRIGGER_CAMERA) \
-    $(wildcard include/config/LEDS_TRIGGER_CPU) \
-    $(wildcard include/config/LEDS_TRIGGER_AUDIO) \
-  include/dt-bindings/leds/common.h \
-  include/linux/of.h \
-    $(wildcard include/config/OF_DYNAMIC) \
-    $(wildcard include/config/SPARC) \
-    $(wildcard include/config/OF_PROMTREE) \
-    $(wildcard include/config/OF_KOBJ) \
-    $(wildcard include/config/OF_NUMA) \
-    $(wildcard include/config/OF_OVERLAY) \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
-  include/linux/property.h \
-  include/linux/gpio/consumer.h \
-    $(wildcard include/config/GPIOLIB) \
-    $(wildcard include/config/GPIO_SYSFS) \
+  include/linux/build-salt.h \
+    $(wildcard include/config/BUILD_SALT) \
+  include/linux/elfnote.h \
+  include/linux/elfnote-lto.h \
+  include/linux/export-internal.h \
+    $(wildcard include/config/PARISC) \
+  include/linux/vermagic.h \
+    $(wildcard include/config/PREEMPT_BUILD) \
+  include/generated/utsrelease.h \
+  arch/arm64/include/asm/vermagic.h \
 
-/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o: $(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o)
+/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o: $(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o)
 
-$(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform.o):
+$(deps_/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_using_lab5_2.mod.o):
