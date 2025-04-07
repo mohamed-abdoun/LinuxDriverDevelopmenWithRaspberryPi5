@@ -30,7 +30,6 @@ struct led_device {
 	void __iomem		*gpio;
 	void __iomem		*rio;
 	void __iomem		*pad;
-	struct miscdevice	misc;
 	const char		*name;
 	int			pin;
 	struct led_classdev cdev;
@@ -39,30 +38,6 @@ struct led_device {
 static void __iomem *GPIO_BASE_V;
 static void __iomem *RIO_BASE_V;
 static void __iomem *PAD_BASE_V;
-
-static ssize_t led_write(struct file *file, const char __user *buff,size_t count, loff_t *ppos)
-{
-	struct led_device *dev;
-	int val, ret, offset;
-
-	dev = container_of(file->private_data, struct led_device, misc);
-	ret = kstrtoint_from_user(buff, count, 10, &val);
-	if (ret)
-		return ret;
-	offset = val ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
-	iowrite32(1 << dev->pin, dev->rio + offset + RP1_RIO_OUT);
-	return count;
-}
-
-static ssize_t led_read(struct file *file, char __user *buff, size_t count,loff_t *ppos){
-	return 0;
-}
-
-static const struct file_operations ledrgb_fops = {
-	.owner = THIS_MODULE,
-	.write = led_write,
-	.read = led_read,
-};
 
 static void ledrgb_init_dev(struct led_device *dev)
 {
@@ -131,6 +106,7 @@ static void ledrgb_init_dev(struct led_device *dev)
 
 static int ledrgb_get_device_pin(const char *name)
 {
+   // 27 (red)--22 (green)-- 26 blue
     pr_info("LED ledrgb_get_device_pin  %s\n", name );
 	if (strcmp(name, "red") == 0)
 		return 22;
@@ -146,14 +122,12 @@ static int ledrgb_get_device_pin(const char *name)
 
 static void led_control(struct led_classdev *led_cdev, enum led_brightness b)
 {
-	int value = 0;
 	struct led_device *dev;
-
 
      pr_info("LED_control received brightness = %u\n", b);
      dev = container_of(led_cdev, struct led_device, cdev);
 	 //writing brightness
-	int offset = value ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
+	int offset = b==LED_ON ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
 	iowrite32(1 << dev->pin, dev->rio + offset + RP1_RIO_OUT);
 
 }
@@ -172,6 +146,7 @@ static int ledrgb_probe(struct platform_device *pdev)
 
         classdev = &led_device->cdev;
 
+
         if (of_property_read_string(child, "label", &label)) {
                 pr_err("Child node missing 'label'\n");
                 continue;
@@ -186,16 +161,8 @@ static int ledrgb_probe(struct platform_device *pdev)
 
         ledrgb_init_dev(led_device);
 
-        led_device->misc.minor = MISC_DYNAMIC_MINOR;
-        led_device->misc.name = led_device->name;
-        led_device->misc.fops = &ledrgb_fops;
-
-        if (misc_register(&led_device->misc)) {
-            pr_err("Failed to register device %s\n", led_device->name);
-            continue;
-        }
-
          /* Disable the timer trigger */
+         led_device->cdev.name = label;
          led_device->cdev.brightness = LED_OFF;
          led_device->cdev.brightness_set = led_control;
 
@@ -208,6 +175,13 @@ static int ledrgb_probe(struct platform_device *pdev)
          pr_info("  brightness   : %d\n",   led_device->cdev.brightness);
          pr_info("  brightness_set  : %px\n",led_device->cdev.brightness_set);
 
+    	int ret = devm_led_classdev_register(&pdev->dev, &led_device->cdev);
+    	if (ret) {
+    		dev_err(&pdev->dev, "Failed to register the LED\n");
+    		of_node_put(child);
+    		return ret;
+    	}
+
     }
 
 	return 0;
@@ -215,9 +189,6 @@ static int ledrgb_probe(struct platform_device *pdev)
 
 static int ledrgb_remove(struct platform_device *pdev)
 {
-	struct led_device *dev;
-	dev = platform_get_drvdata(pdev);
-	misc_deregister(&dev->misc);
 	return 0;
 }
 
@@ -306,10 +277,11 @@ unmap_gpio_base:
 
 static void __exit ledrgb_exit(void)
 {
+	platform_driver_unregister(&led_platform_driver);
 	iounmap(GPIO_BASE_V);
 	iounmap(RIO_BASE_V);
 	iounmap(PAD_BASE_V);
-	platform_driver_unregister(&led_platform_driver);
+
 }
 
 module_init(ledrgb_init);
