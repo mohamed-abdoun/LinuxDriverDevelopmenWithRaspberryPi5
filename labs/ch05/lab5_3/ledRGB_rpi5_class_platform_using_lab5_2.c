@@ -20,9 +20,6 @@
 #define	GPIO_FUNCSEL_MASK		0b11111
 #define PAD_OUT_DIS_MASK		1<<7
 
-#define GPIO_BASE_REG_ADDR		0x1f000d0000
-#define RIO_BASE_REG_ADDR		0x1f000e0000
-#define PAD_BASE_REG_ADDR		0x1f000f0000
 #define REG_SIZE			0xc000
 
 struct led_device {
@@ -137,6 +134,19 @@ static int ledrgb_probe(struct platform_device *pdev)
 	struct led_classdev *classdev;
 	struct device_node *child;
 
+	struct resource *r;
+
+	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+	GPIO_BASE_V = devm_ioremap(&pdev->dev, r->start, resource_size(r));
+
+	r = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+	RIO_BASE_V = devm_ioremap(&pdev->dev, r->start, resource_size(r));
+
+	r = platform_get_resource(pdev, IORESOURCE_MEM, 2);
+	PAD_BASE_V = devm_ioremap(&pdev->dev, r->start, resource_size(r));
+
+
+
     for_each_child_of_node(pdev->dev.of_node, child) {
         const char *label;
 
@@ -192,38 +202,7 @@ static int ledrgb_remove(struct platform_device *pdev)
 	return 0;
 }
 
-/*
-// commented becuase of kernel panic when removing the module
-static int ledrgb_remove(struct platform_device *pdev)
-{
-	struct led_device *dev;
-	struct device_node *child;
-     for_each_child_of_node(pdev->dev.of_node, child) {
-        const char *label;
-        pr_info("LED - ledrgb_remove-  Deregistered RGB LED: %s (pin %d)\n", dev->name, dev->pin);
-         dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
-         if (!dev)
-            continue;
 
-         if (of_property_read_string(child, "label", &label)) {
-              pr_err("Child node missing 'label'\n");
-               continue;
-         }
-
-         dev->name = label;
-         dev->pin = ledrgb_get_device_pin(dev->name);
-         if (dev->pin < 0) {
-             pr_err("Invalid label: %s\n", dev->name);
-             continue;
-         }
-
-        misc_deregister(&dev->misc);
-     }
-
-	 pr_info("LED - ledrgb_remove- Deregistered all devices");
-	return 0;
-}
-*/
 
 static const struct of_device_id of_ids[] = {
 	{ .compatible = "arrow,RGBclassleds" },
@@ -241,51 +220,7 @@ static struct platform_driver led_platform_driver = {
 	},
 };
 
-static int __init ledrgb_init(void)
-{
-	int ret;
-
-	GPIO_BASE_V = ioremap(GPIO_BASE_REG_ADDR, REG_SIZE);
-	if (!GPIO_BASE_V)
-		return -EINVAL;
-
-	RIO_BASE_V = ioremap(RIO_BASE_REG_ADDR, REG_SIZE);
-	if (!RIO_BASE_V)
-		goto unmap_gpio_base;
-
-	PAD_BASE_V = ioremap(PAD_BASE_REG_ADDR, REG_SIZE);
-
-	if (!PAD_BASE_V)
-		goto unmap_rio_base;
-
-	ret = platform_driver_register(&led_platform_driver);
-	if (ret)
-		goto unmap_pad_base;
-
-
-
-	return 0;
-
-unmap_pad_base:
-	iounmap(PAD_BASE_V);
-unmap_rio_base:
-	iounmap(RIO_BASE_V);
-unmap_gpio_base:
-	iounmap(GPIO_BASE_V);
-	return -EINVAL;
-}
-
-static void __exit ledrgb_exit(void)
-{
-	platform_driver_unregister(&led_platform_driver);
-	iounmap(GPIO_BASE_V);
-	iounmap(RIO_BASE_V);
-	iounmap(PAD_BASE_V);
-
-}
-
-module_init(ledrgb_init);
-module_exit(ledrgb_exit);
+module_platform_driver(led_platform_driver);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Mohamed Khalfella <khalfella@gmail.com>");
