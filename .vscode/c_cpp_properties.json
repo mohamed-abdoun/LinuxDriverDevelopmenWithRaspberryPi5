@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/mohamed/src/rpi5/linux/include",
+                "/home/mohamed/src/rpi5/linux/arch/arm64/include",
+                "/home/mohamed/src/rpi5/linux/arch/arm64/include/generated",
+                "/home/mohamed/src/rpi5/linux/include/uapi",
+                "/home/mohamed/src/rpi5/linux/arch/arm64/include/uapi",
+                "/home/mohamed/src/rpi5/linux/arch/arm64/include/generated/uapi"
+            ],
+            "defines": [ "__KERNEL__","__GNUC__"],
+            "compilerPath": "/usr/bin/gcc-13",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-arm64"
+        }
+    ],
+    "version": 4
+}

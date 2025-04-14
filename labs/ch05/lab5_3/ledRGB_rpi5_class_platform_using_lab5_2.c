@@ -124,7 +124,7 @@ static void led_control(struct led_classdev *led_cdev, enum led_brightness b)
      pr_info("LED_control received brightness = %u\n", b);
      dev = container_of(led_cdev, struct led_device, cdev);
 	 //writing brightness
-	int offset = b==LED_ON ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
+	int offset = (b > 0) ? RP1_SET_OFFSET : RP1_CLR_OFFSET;
 	iowrite32(1 << dev->pin, dev->rio + offset + RP1_RIO_OUT);
 
 }
