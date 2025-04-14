@@ -43,12 +43,12 @@ static void led_control(struct led_classdev *led_cdev, enum led_brightness b)
        // pr_info("LED_control: writing brightness %u to address %px\n",
        // b, dev->rio + offset + RP1_RIO_OUT);
        // iowrite32(b, dev->rio + offset + RP1_RIO_OUT);
-
+		 pr_info("LED_control: LED_OFF<> b writing brightness %u to address %px\n", b,  dev->base + RP1_SET_OFFSET);
         iowrite32(dev->led_mask, dev->base + RP1_SET_OFFSET);//dev->base + RP1_SET_OFFSET); // how lab5.3 write
-        pr_info("LED_control: writing brightness %u to address %px\n",
-             b,  dev->base + RP1_SET_OFFSET);
+
     }  // LED ON
     else {
+      		pr_info("LED_control:  LED_OFF == b  writing brightness %u to address %px\n", b,  dev->base + RP1_SET_OFFSET);
             iowrite32(0, dev->base + RP1_CLR_OFFSET);    // LED OFF
     }
 

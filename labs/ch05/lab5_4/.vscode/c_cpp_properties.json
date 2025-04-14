@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "name": "Kernel Module RPi5",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/home/mohamed/src/rpi5/linux/include",
+        "/home/mohamed/src/rpi5/linux/arch/arm64/include",
+        "/home/mohamed/src/rpi5/linux/arch/arm64/include/generated",
+        "/home/mohamed/src/rpi5/linux/arch/include",
+        "/home/mohamed/src/rpi5/linux/arch/include/generated",
+        "/home/mohamed/src/rpi5/linux/include/uapi",
+        "/home/mohamed/src/rpi5/linux/arch/arm64/include/uapi",
+        "/home/mohamed/src/rpi5/linux/arch/arm64/include/generated/uapi"
+      ],
+      "defines": [
+        "__KERNEL__",
+        "MODULE"
+      ],
+      "compilerPath": "/usr/bin/aarch64-linux-gnu-gcc",
+      "compileCommands": "",
+      "cStandard": "gnu11",
+      "cppStandard": "gnu++17",
+      "intelliSenseMode": "linux-gcc-arm64"
+    }
+  ],
+  "version": 4
+}

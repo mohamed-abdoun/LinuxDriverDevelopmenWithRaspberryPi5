@@ -1,0 +1,1 @@
+/root/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch05/lab5_3/ledRGB_rpi5_class_platform_after_fixing_DT.o
