@@ -1,0 +1,7 @@
+
+Pin 	Description             RPI5 GPIO           GPIO Expantion(BreadBord ports)
+--------------------------------------------------------------------------------
+VCC 	3.3V/5V                  pin1                          3v3
+GND 	Power ground             pin6                          GRD
+SDA 	I2C data input           pin3                          SDA1
+SCL 	I2C clock pin            pin5                          SCL1
