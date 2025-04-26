@@ -155,6 +155,7 @@ static const struct i2c_device_id i2c_ids[] = {
     {.name = "ioexp"},
     {},
 };
+
 MODULE_DEVICE_TABLE(i2c, i2c_ids);
 
 static struct i2c_driver ioexp_driver = {
