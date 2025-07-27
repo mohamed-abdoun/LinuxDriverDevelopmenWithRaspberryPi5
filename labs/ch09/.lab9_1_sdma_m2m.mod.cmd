@@ -1,0 +1,1 @@
+savedcmd_/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch09/lab9_1_sdma_m2m.mod := printf '%s\n'   lab9_1_sdma_m2m.o | awk '!x[$$0]++ { print("/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch09/"$$0) }' > /home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch09/lab9_1_sdma_m2m.mod
