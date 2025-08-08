@@ -1,0 +1,1 @@
+savedcmd_/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/lab11.2-nunchuk_provider.mod := printf '%s\n'   lab11.2-nunchuk_provider.o | awk '!x[$$0]++ { print("/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/"$$0) }' > /home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/lab11.2-nunchuk_provider.mod

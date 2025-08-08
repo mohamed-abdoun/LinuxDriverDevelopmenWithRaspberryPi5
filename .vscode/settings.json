@@ -2,6 +2,10 @@
     "files.associations": {
         "i2c.h": "c",
         "type_traits": "c",
-        "utility": "c"
+        "utility": "c",
+        "interrupt.h": "c",
+        "spi.h": "c",
+        "of_gpio.h": "c",
+        "delay.h": "c"
     }
 }
