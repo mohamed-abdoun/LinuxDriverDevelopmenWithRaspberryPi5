@@ -209,7 +209,7 @@ struct adxl345
 // GEt the adxl345 axis data
 static void adxl345_get_triple(struct adxl345 *ac, struct axis_triple *axis)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_get_triple: %s called\n", __func__);
     __le16 buf[3];
     ac->bops->read_block(ac->dev, DATAX0, DATAZ1 - DATAX0 + 1, buf); // Question ?
     ac->saved.x = sign_extend32(le16_to_cpu(buf[0]), 12);
@@ -230,7 +230,7 @@ static void adxl345_send_key_events(struct adxl345 *ac,
                                     struct adxl345_platform_data *pdata,
                                     int status, int press)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_send_key_events: %s called\n", __func__);
     int i;
     for (i = ADXL_X_AXIS; i < ADXL_Z_AXIS; i++)
     {
@@ -244,7 +244,7 @@ static void adxl345_do_tap(struct adxl345 *ac,
                            struct adxl345_platform_data *pdata,
                            int status)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_do_tap: %s called\n", __func__);
     adxl345_send_key_events(ac, pdata, status, true);
     input_sync(ac->input);
     adxl345_send_key_events(ac, pdata, status, false);
@@ -253,7 +253,7 @@ static void adxl345_do_tap(struct adxl345 *ac,
 // Interrupt service routine
 static irqreturn_t adxl345_irp(int irp, void *handle)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_irp: %s called\n", __func__);
     struct adxl345 *ac = handle;
     struct adxl345_platform_data *pdata = &ac->pdata;
     int int_stat, tap_stat;
@@ -290,7 +290,7 @@ static ssize_t adxl345_rate_show(struct device *dev,
                                  struct device_attribute *attr,
                                  char *buf)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_rate_show: %s called\n", __func__);
     struct adxl345 *ac = dev_get_drvdata(dev);
     return sprintf(buf, "%u\n", RATE(ac->pdata.data_rate));
 }
@@ -299,7 +299,7 @@ static ssize_t adxl345_rate_store(struct device *dev,
                                   struct device_attribute *att,
                                   const char *buf, size_t count)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_rate_show: %s called\n", __func__);
     struct adxl345 *ac = dev_get_drvdata(dev);
     u8 val;
     int error;
@@ -328,7 +328,7 @@ static ssize_t adxl345_position_show(struct device *dev,
                                      struct device_attribute *attr,
                                      char *buf)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_position_show: %s called\n", __func__);
     struct adxl345 *ac = dev_get_drvdata(dev);
     ssize_t count;
     count = sprintf(buf, "(%d ,%d,%d) \n", ac->saved.x, ac->saved.y, ac->saved.z);
@@ -342,7 +342,7 @@ static ssize_t adxl345_position_read(struct device *dev,
                                      struct device_attribute *attr,
                                      char *buf)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_position_read: %s called\n", __func__);
     struct axis_triple axis;
     ssize_t count;
     struct adxl345 *ac = dev_get_drvdata(dev);
@@ -365,7 +365,7 @@ static const struct attribute_group adxl345_attr_group = {
 
 struct adxl345 *adxl345_probe(struct device *dev, const struct adxl345_bus_ops *bops)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345 adxl345_probe: %s called\n", __func__);
     // DEclare your private struct
     struct adxl345 *ac;
 
@@ -539,7 +539,7 @@ err_out:
 // Read the value of the register
 static int adxl345_spi_read(struct device *dev, unsigned char reg)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345: %s called\n", __func__);
     struct spi_device *spi = to_spi_device(dev);
     u8 cmd;
     cmd = ADXL345_READCMD(reg); // Question
@@ -550,7 +550,7 @@ static int adxl345_spi_read(struct device *dev, unsigned char reg)
 // Write 2 bytes , the address of the register and the values to store on it
 static int adxl345_spi_write(struct device *dev, unsigned char reg, unsigned char val)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345: %s called\n", __func__);
     struct spi_device *spi = to_spi_device(dev);
     u8 buf[2];
     buf[0] = ADXL345_WRITECMD(reg);
@@ -566,7 +566,7 @@ static int adxl345_spi_read_block(struct device *dev,
 
                                   int count, void *buf)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345: %s called\n", __func__);
     struct spi_device *spi = to_spi_device(dev);
     ssize_t status;
     // Add MB flags to the reading
@@ -591,7 +591,7 @@ static const struct adxl345_bus_ops adxl345_spi_bops = {
 
 static int adxl345_spi_probe(struct spi_device *spi) // Question: why we have 2 probe
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345: %s called\n", __func__);
     struct adxl345 *ac;
     // Send the spi operations
     ac = adxl345_probe(&spi->dev, &adxl345_spi_bops);
@@ -607,7 +607,7 @@ static int adxl345_spi_probe(struct spi_device *spi) // Question: why we have 2 
 
 static int adxl345_spi_remove(struct spi_device *spi)
 {
-    pr_info("adxl345: %s called\n", __func__);
+    dev_info("adxl345: %s called\n", __func__);
     struct adxl345 *ac = spi_get_drvdata(spi);
     dev_info(ac->dev, "my_remove() function is called\n");
     sysfs_remove_group(&ac->dev->kobj, &adxl345_attr_group);

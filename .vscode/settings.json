@@ -5,6 +5,7 @@
         "utility": "c",
         "interrupt.h": "c",
         "spi.h": "c",
-        "of_gpio.h": "c"
+        "of_gpio.h": "c",
+        "delay.h": "c"
     }
 }

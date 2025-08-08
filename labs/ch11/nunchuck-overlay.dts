@@ -1,0 +1,35 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2712";
+	
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			
+			nunchuck_accel: nunchuck@52 {
+				compatible = "nunchuck_accel_provider";
+				reg = <0x52>;
+				#io-channel-cells = <1>;
+			};
+		};
+	};
+	
+	
+	fragment@1 {
+		target-path = "/";
+		__overlay__ {
+			nunchuck_consumer: nunchuck-consumer {
+				compatible = "nunchuck_consumer";
+				io-channels = <&nunchuck_accel 0>, <&nunchuck_accel 1>, <&nunchuck_accel 2>;
+				io-channel-names = "accel_x", "accel_y", "accel_z";
+				status = "okay";
+			};
+		};
+	};
+	
+};
