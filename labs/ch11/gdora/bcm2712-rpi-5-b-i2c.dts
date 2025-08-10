@@ -1,0 +1,104 @@
+// SPDX-License-Identifier: GPL-2.0
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "raspberrypi,5-model-b", "brcm,bcm2712";
+	
+	fragment@0 {
+		target = <&i2c_arm>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			/*
+			ioexp@20 {
+				compatible = "arrow,ioexp";
+				reg = <0x20>;
+				status = "disabled";
+			};
+			*/
+			/*
+			adxl345@1d {
+				compatible = "arrow,adxl345";
+				reg = <0x1d>;
+			};
+			*/
+			nunchuk_accel: nunchuk_accel@52 {
+				#io-channel-cells = <1>;
+				compatible = "nunchuk_accel";
+				reg = <0x52>;
+			};
+
+			blinkm@9 {
+				compatible = "thingm,blinkm";
+				reg = <0x09>;
+				status = "disabled";
+				ledred {
+					label = "red";
+				};
+				ledgreen {
+					label = "green";
+				};
+				ledblue {
+					label = "blue";
+				};
+			};
+			cy8c9520a: cy8c9520a@20 {
+				compatible = "cy8c9520a";
+				reg = <0x20>;
+				interrupt-controller;
+				#interrupt-cells = <2>;
+				gpio-controller;
+				#gpio-cells = <2>;
+
+				interrupts = <23 1>;
+				interrupt-parent = <&rp1_gpio>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&accel_int_pin>;
+                                gpios = <&rp1_gpio 23 0>;
+
+				#pwm-cells = <2>;
+				pwm0 = <20>;	// pwm not supported
+				pwm1 = <3>;
+				pwm2 = <20>;	// pwm not supported
+				pwm3 = <2>;
+
+				cy8c9520apullups: pinmux1 {
+					pins = "gpio0", "gpio1";
+					bias-pull-up;
+				};
+
+				cy8c9520apulldowns: pinmux2 {
+					pins = "gpio2";
+					bias-pull-down;
+				};
+
+				cy8c9520adrivestrength: pinmux3 {
+					pins = "gpio3";
+					drive-strength;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&soc>;
+		__overlay__ {
+			/*
+			int_gpio {
+				compatible = "arrow,int_gpio_expand";
+				pinctrl-names = "default";
+				interrupt-parent = <&cy8c9520a>;
+				interrupts = <0 3>;
+			};
+			*/
+
+			nunchuk_consumer {
+				compatible = "nunchuk_consumer";
+				io-channels = <&nunchuk_accel 0>, <&nunchuk_accel 1>, <&nunchuk_accel 2>;
+				io-channel-names = "accel_x", "accel_y", "accel_z";
+			};
+		};
+	};
+};
