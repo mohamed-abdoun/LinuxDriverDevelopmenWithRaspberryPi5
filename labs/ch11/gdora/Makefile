@@ -1,0 +1,14 @@
+obj-m := gdora_consumer.o gdora_nunchuk_provider.o
+KERNEL_DIR ?=/root/rpi5/linux
+# Cross-compiler prefix for ARM64
+CROSS_COMPILE ?= aarch64-linux-gnu-
+
+all:
+	@echo "=== Building kernel module ==="
+	make -C $(KERNEL_DIR) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- M=$(PWD) modules
+
+clean:
+	make -C $(KERNEL_DIR) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- M=$(PWD) clean
+
+deploy:
+	scp gdora_consumer.ko gdora_nunchuk_provider.ko root@192.168.4.41:/root

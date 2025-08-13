@@ -1,0 +1,1 @@
+savedcmd_/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/gdora/gdora_consumer.mod := printf '%s\n'   gdora_consumer.o | awk '!x[$$0]++ { print("/home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/gdora/"$$0) }' > /home/mohamed/src/rpi5/LinuxDriverDevelopmenWithRaspberryPi5/labs/ch11/gdora/gdora_consumer.mod
